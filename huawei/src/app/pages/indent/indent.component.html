@@ -1,0 +1,69 @@
+<div class="container" >
+    <div class="top">
+        <div class="left">
+            <div class="img">
+            <img src="../../../assets/amages/logo_app.png">
+            </div>
+        
+            <div class="title">我的购物车</div>
+        </div>
+        
+
+        <div class="right">
+            <img src="../../../assets/amages/shop1.png">
+        </div>
+    </div>
+
+    <div class="body">
+        <div class="box1">
+            <input type="checkbox" [checked]="isAllSelect" (change)="allselectChange()">
+            <div class="allselect">全选</div>
+            <ul>
+                <li>商品</li>
+                <li>单价</li>
+                <li>数量</li>
+                <li>小计</li>
+                <li>操作</li>                
+            </ul>
+        </div>
+
+        <div class="box2">
+            <div class="indent" *ngFor="let i of data">
+                <div class="checkbox">
+                    <input type="checkbox" [checked]="isAllSelect">
+                </div>
+                <div class="image">
+                <img src="{{i[0].image}}">
+                </div>
+                <div class="name">{{i[0].name}} {{i[1]}} {{i[2]}}</div>
+                <div>{{i[0].price}}</div>
+                <div class="number" >
+                    <button (click)="reducenumber(i[0].id)">-</button>
+                    <div class="num">{{i[3]}}</div>
+                    <button (click)="addnumber(i[0].id)">+</button>
+                </div>
+                <div>{{i[0].price*i[3]}}</div>
+                <div (click)="delete(i[0].id)">删除</div>
+            </div>
+            
+        </div>
+    
+
+        <div class="box3">
+            <div class="left">
+                <div><input type="checkbox">全选</div>
+                <div>删除</div>
+            </div>
+
+            <div class="right">
+                <div>
+                    <div class="total" ><span>合计：</span><span >{{totalprice}}</span></div>
+                    <div>已选择 {{number}} 件商品</div>
+                </div>
+                
+                <button routerLink="/affirm">立即结算</button>
+            </div>
+        </div>
+    </div>
+</div>
+<app-bottom></app-bottom>

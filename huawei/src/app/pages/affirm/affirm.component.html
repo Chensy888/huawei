@@ -1,0 +1,136 @@
+<div class="container" >
+    <div class="top">
+        <div class="left">
+            <div class="img">
+            <img src="../../../assets/amages/logo_app.png">
+            </div>
+        
+            <div class="title">我的购物车</div>
+        </div>
+        
+
+        <div class="right">
+            <img src="../../../assets/amages/shop2.png">
+        </div>
+    </div>
+
+    <div class="body">
+        <div>
+            <div class="area_box">
+                <div class="area">
+                    <div>收获地址</div>
+                    <div (click)="addArea()" #area>+新增收获地址</div>
+                    <div class="message" #mes>
+                        <div>
+                            <div>姓名：</div>
+                            <div>{{name}}</div>
+                        </div>
+                        <div>
+                            <div>手机号码：</div>
+                            <div>{{phone}}</div>                     
+                        </div>
+                        <div>
+                            <div>地址：</div>
+                            <div>{{selectProvince}} {{selectCity}} {{selectDistrict}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box1" #box1>
+                <div class="boder">
+                    <div class="title">添加地址</div>
+                    <div class="message">
+                        <div class="name">
+                            <div class="title">收货人：</div>
+                            <div><input type="text" placeholder="请输入姓名" [(ngModel)]="name"></div>
+                        </div>
+                        <div class="phone">
+                            <div class="title">手机号码：</div>
+                            <div><input type="text" placeholder="请输入11位手机号" (input)="onInputChange($event)" maxlength="11" [(ngModel)]="phone"></div>
+                            <div style="color: red;">{{message}}</div>
+                            <div class="title">备选号码：</div>
+                            <div><input type="text" placeholder="固话或其他手机号码" (input)="onInputChange($event)" maxlength="11"></div>
+                        </div>
+                        <div class="area">
+                            <div class="title">收获地址：</div>
+                            <div>
+                                <div class="select">
+                                    <select [(ngModel)]="proviceId" (change)="getProviceId(proviceId)">
+                                        <option *ngFor="let province of provinces" [value]="province.id">{{province.area_name}}</option>
+                                    </select>
+                                    <select [(ngModel)]="cityId" (change)="getCityId(cityId)">
+                                        <option *ngFor="let city of citys" [value]="city.id">{{city.area_name}}</option>
+                                    </select>
+                                    <select [(ngModel)]="districtId" (change)="getDistrictId(districtId)">
+                                        <option *ngFor="let district of districts" [value]="district.id">{{district.area_name}}</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <textarea placeholder="请输入详细信息"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="button">
+                        <div class="cancel">
+                            <button (click)="cancel()">取消</button>
+                        </div>
+                        <div class="save">
+                            <button (click)="save()">保存并使用</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+            <div class="box2">
+                <div class="box2_left">
+                    <div class="left" *ngFor="let i of data">
+                        <div class="image">
+                        <img src="{{i[0].image}}">
+                        </div>
+                        <div class="name">{{i[0].name}} {{i[1]}} {{i[2]}}</div>
+
+                        <div class="number" >
+                            <div class="num">X{{i[3]}}</div>
+                        </div>
+                        <div>￥{{i[0].price*i[3]}}</div>
+                    </div> 
+                </div>
+                
+
+                <div class="right">
+                    <div class="title">商品由<div style="color: red;">&nbsp;华为商城&nbsp;</div>选择合作快递</div>
+                    <div class="money">
+                        <div>结算金额：</div>
+                        <div>￥{{totalmoney}}</div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="box3">
+                <div class="money">
+                    <div>应付金额：</div>
+                    <div>￥{{totalmoney}}</div>
+                </div>
+                <div>
+                    <button (click)="sumbit()">提交订单</button>
+                </div>
+            </div>
+
+           
+        
+
+        </div>
+    </div>
+    <!-- <form [formGroup]="addressForm" (ngSubmit)="submit()">
+            <formly-form [fields]="fields" [form]="addressForm"></formly-form>
+            <button type="submit">Submit</button>
+          </form> -->
+
+    <app-bottom></app-bottom>
+</div>
+

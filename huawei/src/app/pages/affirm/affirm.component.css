@@ -1,0 +1,235 @@
+.container{
+    background-color: #F1F3F5;
+    padding-bottom: 20px;
+    position: relative;
+}
+.top{
+    display: flex;
+    height: 70px;
+    background-color: white;
+    padding-left: 100px;
+    padding-right: 100px;
+    justify-content: space-between;
+}
+.top>.left{
+    display: flex;
+}
+.top>.left>.img{
+    height: 70px;
+    width: 200px;
+}
+.top>.right{
+    width: 320px;
+}
+img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+.top>.left>.title{
+    font-size: 26px;
+    line-height: 70px;
+}
+.body{
+    padding: 30px 150px;
+}
+.area_box{
+    background-color: white;
+    padding: 20px 40px;
+}
+.area_box>.area>div:nth-child(1){
+    font-size: 18px;
+    margin-bottom: 24px;
+}
+.area_box>.area>div:nth-child(2){
+    width: 760px;
+    height: 78px;
+    border: 1px solid #dddddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.area_box>.area>.message{
+    display: none;
+}
+.area_box>.area>.message>div{
+    display: flex;
+    padding: 10px 0;
+}
+.area_box>.area>.message>div>div:nth-child(1){
+    width: 91px;
+    text-align: center;
+}
+
+.box1{
+    position: fixed;
+    z-index: 9999;
+    background-color: rgba(0,0,0,0.4);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding-top: 150px;
+    font-size: 14px;
+    display: none;
+}
+.box1>.boder{
+    width: 770px;
+    height: 400px;
+    background-color: white;
+    margin: auto;
+}
+.box1>.boder>.title{
+    padding-top: 20px;
+    font-size: 18px;
+    text-align: center;
+}
+.box1>.boder>.message{
+    width: 740px;
+    height: 270px;
+    margin: auto;
+}
+.box1>.boder>.message>.name{
+    display: flex;
+    padding: 10px 0;
+}
+.box1>.boder>.message .title{
+    width: 82px;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 10px;
+    text-align: right;
+}
+.box1>.boder>.message>.name input{
+    width: 574px;
+    height: 21px;   
+    padding: 8px 12px;
+    border: 1px solid #DEDEDE;
+}
+.box1>.boder>.message>.phone{
+    display: flex;
+    padding: 10px 0;
+}
+.box1>.boder>.message>.phone input{
+    width: 229px;
+    height: 21px;   
+    padding: 8px 12px;
+    border: 1px solid #DEDEDE;
+}
+.box1>.boder>.message>.area{
+    display: flex;
+    padding: 10px 0;
+}
+.box1>.boder>.message>.area .select{
+    padding-bottom: 10px;
+}
+.box1>.boder>.message>.area select{
+    width: 120px;
+    height: 41px;
+}
+textarea{
+    width: 355px;
+    height: 75px;
+    padding: 8px 12px;
+}
+.box1>.boder>.button{
+    display: flex;
+    padding-top: 20px;
+    justify-content: center;
+}
+.box1>.boder>.button button{
+    width: 170px;
+    height: 44px;
+}
+.box1>.boder>.button>.cancel button{
+    background-color: white;
+    border: 1px solid #DEDEDE;
+    margin-right: 10px;
+    font-size: 18px;
+}
+.box1>.boder>.button>.save button{
+    background-color: #ca141d;
+    color: white;
+    font-size: 18px;
+    border: none;
+}
+
+.box2{
+    display: flex;
+    margin: 20px 0;
+    justify-content: space-between;
+    background-color: white;
+}
+.box2 .left{
+    display: flex;
+    width: 720px;
+    line-height: 100px;
+    
+}
+.box2>.box2_left{
+    border: 1px solid gainsboro;
+    margin: 20px 0 20px 20px;
+    width: 800px;
+}
+.box2 .left>.image{
+    height: 100px;
+    width: 100px;
+}
+.box2 .left>.name{
+    width: 320px;
+}
+.box2 .left>.number{
+    padding: 0 100px;
+}
+.box2>.right{
+    width: 360px;
+    background-color: #F1F3F5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid gainsboro;
+    margin: 20px 20px 20px 0;
+}
+.box2>.right>.title{
+    display: flex;
+    font-size: 20px;
+    padding-top: 5px;
+    padding-left: 10px;
+}
+.box2>.right>.money{
+    display: flex;
+    padding-left: 10px;
+    height: 100px;
+    line-height: 100px;
+}
+.box2>.right>.money>div:nth-child(2){
+    
+    font-size: 25px;
+    color: red;
+}
+
+.box3{
+    height: 200px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding-right: 20px;
+}
+.box3>.money{
+    display: flex;
+    height: 100px;
+    line-height: 100px;
+}
+.box3>.money>div:nth-child(2){
+    font-size: 30px;
+    color: #ca141d;
+}
+.box3 button{
+    width: 172px;
+    height: 46px;
+    background-color:#ca141d ;
+    border: none;
+    color: white;
+    font-size: 18px;
+}

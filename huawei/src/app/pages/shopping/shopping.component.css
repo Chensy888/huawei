@@ -1,0 +1,87 @@
+.box{
+    height: 600px;
+    display: flex;
+    padding: 0 120px;
+}
+.left-box{
+    height: 600px;
+    width: 600px;
+}
+.left-box>img{
+    width: 100%;
+    height: 100%;
+}
+.right-box{
+    width: 600px;
+}
+.name{
+    font-size: 25px;
+}
+.introduce{
+    font-size: 15px;
+    padding: 15px 0;
+    color: #9f9f9f;;
+}
+.price{
+    font-size: 30px;
+    color: red;
+}
+.title{
+    font-size: 20px;
+    padding: 10px 0;
+}
+.select{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.active{
+    color: #d8d8d8;;
+    width: 200px;
+    height: 50px;
+    border: 1px solid #d8d8d8;
+    text-align: center;
+    line-height: 50px;
+    margin-top: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.active:hover{
+    color: red;
+    border: 1px solid red
+}
+.red{
+    color: red;
+    border: 1px solid red
+}
+.end{
+    padding: 15px 0;
+}
+.bottom{
+    display: flex;
+}
+.number{
+    line-height: 50px;
+}
+.number>button{
+    height: 25px;
+    width: 25px;
+    border-radius: 100%;
+    background-color: white;
+    
+}
+input{
+    width: 200px;
+    height: 50px;  
+    border-radius: 35px;
+    border: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+.addshop{
+    background-color: #FF934C;
+    margin: 0 30px;
+}
+.buy{
+    background-color: red;
+}

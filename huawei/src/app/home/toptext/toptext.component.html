@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="top">
+        <div class="left">
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">消费者业务网站</a></li>
+                <li><a href="#">优购码</a></li>
+                <li><a href="#">企业商用</a></li>
+                <li><a href="#">Select Region</a></li>
+                <li><a href="#">更多精彩</a></li>
+            </ul>
+        </div>
+        <div class="right">
+            <ul>
+                <li><a href="#">请登录</a></li>
+                <li><a href="#">注册</a></li>
+                <li><a href="#">我的订单</a></li>
+                <li><a href="#">客服</a></li>
+                <li><a href="#">网站导航</a></li>
+                <li><a href="#">手机版</a></li>
+                <li><a routerLink="/indent">购物车</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="head" #head>
+        <div class="logo_app">
+            <img src="../../../assets/amages/logo_app.png">
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="#">华为</a></li>
+                <li><a href="#">鸿蒙智行</a></li>
+                <li><a href="#">华为智选</a></li>
+                <li><a href="#">生态周边</a></li>
+            </ul>
+        </div>
+        
+        <div class="search">
+            <span class="iconfont icon-sousuo" (click)="search()"></span>
+        </div>
+    </div>
+
+    <div class="search1_box" #search1_box>
+        <div class="search1">
+            <div class="sousuo">
+                <span class="iconfont icon-sousuo"></span>
+            </div>
+            <div class="input">
+                <input (keyup.enter)="jump()" placeholder="搜索商品">
+            </div>
+            <div class="x">
+                <span class="iconfont icon-x" (click)="x()"></span>
+            </div>
+        </div>
+        
+    </div>
+</div>

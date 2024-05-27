@@ -1,0 +1,50 @@
+<div>
+    <app-toptext></app-toptext>
+    
+    <div class="container">
+        <div class="title">首页>手机>Mate系列</div>
+        <div class="classify">
+            <div class="classify-box">
+                <div>分类：</div>
+                <div>Mate系列</div>
+            </div>
+            <div class="classify-box">
+                <div>服务优惠：</div>
+                <div>仅看有货</div>
+            </div>
+            <div class="classify-box">
+                <div>排序：</div>
+                <div class="synthesize" (click)="getAllList()" tabindex="1">综合</div>
+                <div>最新</div>
+                <div class="sortcomment" (click)="sortByComment()" tabindex="1">评论数</div>
+                <div class="price-box">
+                    <div>价格：</div>
+                    <div class="price"><input type="text"  [(ngModel)]="minprice" (input)="onInputChange($event)"></div>
+                    <div class="middle-box"> — </div>
+                    <div class="price"><input type="text"  [(ngModel)]="maxprice"  (input)="onInputChange($event)"></div>
+                    <div><button (click)="sortByPrice()">确定</button></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="series">
+            <div class="module">
+                <div class="box"  *ngFor="let i of pagedData" (click)="getId(i.id)">
+                    <div class="img-box"><img src="{{i.image}}" title="{{i.name}}"></div>
+                    <div class="name">{{i.name}}</div>
+                    <div class="introduce">{{i.introduce}}</div>
+                    <div class="price">￥{{i.price}}</div>
+                    <div class="comment">{{i.comment}}人评价</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pagination">
+            <button *ngFor="let page of getPageNumbers()" (click)="pageChanged(page)">
+                {{ page }}
+            </button>
+        </div>
+    </div>
+    
+    <app-bottom></app-bottom>
+</div>

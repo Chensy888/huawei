@@ -1,0 +1,23 @@
+.container {
+    position: relative;
+}
+.top{
+    display: flex;
+    background-color: black;
+    justify-content: space-between;
+    padding: 0 100px;
+}
+.top ul{
+    display: flex;
+    list-style-type: none;
+}
+.top ul>li{
+    margin-left: 10px;
+}
+.top a{
+    text-decoration: none;
+    color: darkgray;
+}
+.top a:hover{
+    color: white;
+}

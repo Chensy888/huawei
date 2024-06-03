@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } fr
 import { Service } from '../Service';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 
@@ -28,6 +28,7 @@ export class AffirmComponent implements OnInit,AfterViewInit{
   totalmoney:number=0;
   name:any
   phone:any
+  phone2:any
   message:any
 
   constructor(
@@ -74,7 +75,24 @@ export class AffirmComponent implements OnInit,AfterViewInit{
     inputElement.value = filteredValue;
     this.phone = filteredValue;
   }
-
+  // 在组件类中
+isInvalidPhoneNumber(): boolean {
+  const phoneNumberPattern = /^1[0-9]{10}$/;
+  return this.phone && !phoneNumberPattern.test(this.phone);
+}
+onInputChange2(event: any) {
+  const inputElement = event.target;
+  const inputValue = inputElement.value;
+  // 过滤掉非数字字符
+  const filteredValue = inputValue.replace(/[^0-9]/g, '');
+  // 更新输入框的值
+  inputElement.value = filteredValue;
+  this.phone2 = filteredValue;
+}
+isInvalidPhoneNumber2(): boolean {
+  const phoneNumberPattern = /^1[0-9]{10}$/;
+  return this.phone2 && !phoneNumberPattern.test(this.phone);
+}
   sumbit(){
     alert('购买成功！');
 
@@ -110,6 +128,7 @@ export class AffirmComponent implements OnInit,AfterViewInit{
   getDistrictId(districtId:number){
     this.selectDistrict = this.areaData.data[districtId-1].area_name
   }
+  
   
   ngOnInit(): void {
     this.http.get("http://localhost:4201/area/getAllList").subscribe(res =>{

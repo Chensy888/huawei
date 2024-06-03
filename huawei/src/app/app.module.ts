@@ -17,6 +17,8 @@ import { IndentComponent } from './pages/indent/indent.component';
 import { FormlyConfig, FormlyModule } from '@ngx-formly/core';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { AffirmComponent } from './pages/affirm/affirm.component';
+import { TopComponent } from './home/top/top.component';
+import { ProgressComponent } from './home/progress/progress.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { AffirmComponent } from './pages/affirm/affirm.component';
     SlideshowComponent,
     ToptextComponent,
     IndentComponent,
-    AffirmComponent
+    AffirmComponent,
+    TopComponent,
+    ProgressComponent
   ],
   imports: [
     BrowserModule,

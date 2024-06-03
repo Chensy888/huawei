@@ -1,7 +1,16 @@
-.box{
-    height: 600px;
+.container {
+    position: relative;
+    width: 1226px;
     display: flex;
-    padding: 0 120px;
+    align-items: center;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+.box{
+    height: 600px;  
+    margin: 0 auto;
+    display: flex;
 }
 .left-box{
     height: 600px;

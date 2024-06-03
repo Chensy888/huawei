@@ -19,7 +19,7 @@
     width: 200px;
 }
 .top>.right{
-    width: 320px;
+    width: 400px;
 }
 img{
     height: 100%;
@@ -169,7 +169,11 @@ textarea{
 .box2>.box2_left{
     border: 1px solid gainsboro;
     margin: 20px 0 20px 20px;
+
     width: 800px;
+}
+.box2 .left{
+    padding: 20px;
 }
 .box2 .left>.image{
     height: 100px;
@@ -192,15 +196,16 @@ textarea{
 }
 .box2>.right>.title{
     display: flex;
-    font-size: 20px;
-    padding-top: 5px;
+    font-size: 18px;
+    padding-top: 20px;
     padding-left: 10px;
 }
 .box2>.right>.money{
     display: flex;
-    padding-left: 10px;
-    height: 100px;
-    line-height: 100px;
+    height: 200px;
+    line-height: 300px;
+    justify-content: flex-end;
+    margin:0 20px;
 }
 .box2>.right>.money>div:nth-child(2){
     

@@ -4,6 +4,8 @@ import { ToptextComponent } from './toptext/toptext.component';
 import { SlideshowComponent } from './slideshow/slideshow.component';
 import { BottomComponent } from './bottom/bottom.component';
 import { BodyComponent } from './body/body.component';
+import { TopComponent } from './top/top.component';
+import { ProgressComponent } from './progress/progress.component';
 
 
 
@@ -14,7 +16,7 @@ import { BodyComponent } from './body/body.component';
     ToptextComponent, 
     SlideshowComponent, 
     BottomComponent, 
-    BodyComponent
+    BodyComponent, TopComponent, ProgressComponent
   ],
   imports: [
     CommonModule

@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -21,7 +21,7 @@ export class ToptextComponent {
   }
   x(){
     this.search1_box.nativeElement.style.display = 'none';
-    this.head.nativeElement.style.display = 'block';
+    this.head.nativeElement.style.display = 'flex';
   }
   jump(){
     this.router.navigate(['/mate']);

@@ -1,40 +1,18 @@
 .container {
-    padding-bottom: 10px;
-    position: relative;
-}
-.top{
+    height: 74px;
     display: flex;
-    background-color: black;
-    justify-content: space-between;
-    padding: 0 100px;
+    justify-content: center;
 }
-.top ul{
-    display: flex;
-    list-style-type: none;
-}
-.top ul>li{
-    margin-left: 10px;
-}
-.top a{
-    text-decoration: none;
-    color: darkgray;
-}
-.top a:hover{
-    color: white;
-}
-
-
 .logo_app{
     width: 103px;
-    float: left;
 }
 .logo_app>img{
     width: 100%;
 }
 .head{
-    margin: -15px auto 0;
     width: 1226px;
-    height: 74px;
+    display: flex;
+    align-items: center;
 }
 .head a{
     text-decoration: none;
@@ -43,18 +21,20 @@
 .head a:hover{
     color: red;
 }
-
+.nav{
+    width: 700px;
+}
+.nav>ul{
+    display: flex;
+}
 .nav>ul>li{
-    float: left;
     list-style-type: none;
-    height: 74px;
-    line-height: 74px;
     margin-left: 60px;
 }
 .search {
-    float: right;
+    position: absolute;
+    right: 100px;
     width: 26px;
-    line-height: 74px;
 }
 .search span{
     font-size: 26px;
@@ -64,14 +44,12 @@
     height: 36px;
     line-height: 36px;
     padding: 18px;
-    padding-left: 400px;
     display: none;
 }
 .search1{
     display: flex;
     justify-content: center;
     width: 586px;
-    outline: 1px solid rgba(0,0,0,0.4);
     border-radius: 25px;
     background-color:#F2F2F2;
 }

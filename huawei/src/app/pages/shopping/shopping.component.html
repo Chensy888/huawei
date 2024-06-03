@@ -1,45 +1,45 @@
-<div class="container">
-    <app-toptext></app-toptext>
 
-    <div class="box">
-        <div class="left-box">
-            <img src="{{mateData.data.image}}"/>
+<app-top></app-top>
+<app-toptext></app-toptext>
+<div class="container">
+<div class="box">
+    <div class="left-box">
+        <img src="{{mateData.data.image}}"/>
+    </div>
+    
+    <div class="right-box">
+        <div class="name">{{mateData.data.name}}</div>
+        <div class="introduce">{{mateData.data.introduce}}</div>
+        <div class="price">￥{{mateData.data.price}}</div>
+        <div class="title">颜色</div>
+        <div class="select">
+            <div *ngFor="let color of colors" [ngClass]="{'active':true, 'red':setColor === color}" (click)="colorClick(color)"> 
+                <div>
+                    {{color}}
+                </div>
+            </div>
         </div>
         
-        <div class="right-box">
-            <div class="name">{{mateData.data.name}}</div>
-            <div class="introduce">{{mateData.data.introduce}}</div>
-            <div class="price">￥{{mateData.data.price}}</div>
-            <div class="title">颜色</div>
-            <div class="select">
-                <div *ngFor="let color of colors" [ngClass]="{'active':true, 'red':setColor === color}" (click)="colorClick(color)"> 
-                    <div>
-                        {{color}}
-                    </div>
+        <div class="title">版本</div>
+        <div class="select">
+            <div *ngFor="let version of version" [ngClass]="{'active':true, 'red':setVersion === version}" (click)="versionClick(version)">               
+                <div>
+                    {{version}}
                 </div>
-            </div>
-            
-            <div class="title">版本</div>
-            <div class="select">
-                <div *ngFor="let version of version" [ngClass]="{'active':true, 'red':setVersion === version}" (click)="versionClick(version)">               
-                    <div>
-                        {{version}}
-                    </div>
-                </div>
-            </div>
-            
-            <div class="end">已选：{{setColor}} + {{setVersion}} 总价：￥{{mateData.data.price * number}}</div>
-            <div class="bottom">
-                <div class="number">
-                    <button (click)="reducenumber()">-</button>
-                    {{number}}
-                    <button (click)="addnumber()">+</button>
-                </div>
-                <input class="addshop" type="button" value="加入购物车" routerLink="/indent" (click)="addShop()">
-                <input class="buy" type="button" value="立即购买" routerLink="/affirm" (click)="addShop()">
             </div>
         </div>
+        
+        <div class="end">已选：{{setColor}} + {{setVersion}} 总价：￥{{mateData.data.price * number}}</div>
+        <div class="bottom">
+            <div class="number">
+                <button (click)="reducenumber()">-</button>
+                {{number}}
+                <button (click)="addnumber()">+</button>
+            </div>
+            <input class="addshop" type="button" value="加入购物车" routerLink="/indent" (click)="addShop()">
+            <input class="buy" type="button" value="立即购买" routerLink="/affirm" (click)="addShop()">
+        </div>
     </div>
-
-    <app-bottom></app-bottom>
 </div>
+</div>
+<app-bottom></app-bottom>

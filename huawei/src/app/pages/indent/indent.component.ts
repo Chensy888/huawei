@@ -7,15 +7,15 @@ import { map } from 'rxjs';
   templateUrl: './indent.component.html',
   styleUrl: './indent.component.css'
 })
-export class IndentComponent implements OnInit{
-  totalprice:number=0;
+export class IndentComponent{
   data:any;
-  isAllSelect=false
-  number:number=0
+  isAllSelect = false
+  isSelect = false
   serviceItems$ = this.service.serviceItems$
 
-
-
+  selectItems:any[]=[]
+  totalMoney:number=0 
+  number:number=0
   constructor(
     private service : Service
   )
@@ -26,46 +26,67 @@ export class IndentComponent implements OnInit{
       this.data=item
     })
   }
-  
-  
-  ngOnInit(): void {
-      this.data.map((i:any) => {
-      this.totalprice += i[0].price*i[3]
-      this.number += i[3]
-    })
-  
-    
-    // this.number=this.service.number
-    // this.image=this.service.image;
-    // this.name=this.service.name;
-    // this.color=this.service.color;
-    // this.version=this.service.version;
-    // this.price=this.service.price;
-  }
   allselectChange(){
+    this.totalMoney = 0
+    this.number = 0
     this.isAllSelect = !this.isAllSelect
+    this.isSelect = !this.isSelect
+    if(this.isAllSelect){
+        this.data.map((i:any) =>{
+          this.totalMoney += i[0].price*i[3]
+          this.number += i[3]
+      })     
+    }else{
+      this.totalMoney = 0
+    }
+  }
+  getSelectMoney(id:any,isChecked:boolean){
+    //this.selectItems.push(id);
+
+    console.log(this.data)
+    this.data.map((i:any) =>{
+      if(i[0].id === id){
+        if(isChecked){
+          this.totalMoney += i[0].price*i[3]
+          this.number += i[3]
+        }else{
+          this.totalMoney -= i[0].price*i[3]
+          this.number -= i[3]
+        }
+      }
+    })
+
+    // if(this.selectItems.length === this.data.length){
+    //   this.isAllSelect = true
+    // }else{
+    //   this.isAllSelect = false
+    // }
   }
 
-  reducenumber(id:any){
+  reducenumber(id:any,isChecked:boolean){
+    if(isChecked){
       this.data.map((i:any) =>{
         if(i[3]>1){
           if(i[0].id === id){
             i[3]--;
-            this.totalprice -= i[0].price
             this.number--
+            this.totalMoney -=i[0].price
           }
         }
       })
+    }   
   }
 
-  addnumber(id:any){
-    this.data.map((i:any) =>{
-      if(i[0].id === id){
-        i[3]++
-        this.totalprice += i[0].price
-        this.number++
-      }
-    })
+  addnumber(id:any,isChecked:boolean){
+    if(isChecked){
+      this.data.map((i:any) =>{
+        if(i[0].id === id){
+          i[3]++
+          this.number++
+          this.totalMoney +=i[0].price
+        }
+      })
+    } 
   }
 
   delete(id:any){
@@ -73,7 +94,6 @@ export class IndentComponent implements OnInit{
     this.data.map((i:any) =>{
       if(i[0].id === id){
         this.data.splice(i,1)
-        this.totalprice -= i[0].price;
         this.number--
       }
     })

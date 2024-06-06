@@ -14,10 +14,4 @@ export class Service {
         serviceItems.push(item);
         this.serviceItems.next(serviceItems);
     }
-    // public image = "";
-    // public name = "";
-    // public color = "";
-    // public version = "";
-    // public number = 0;
-    // public price = "";
 }

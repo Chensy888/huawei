@@ -34,17 +34,33 @@
 .sortcomment:focus{
     color: red;
 }
-.classify-box>div:not(:first-child):hover{
+.classify-box>div:not(:first-child):not(:last-child):hover{
     color: red;
 }
 .price-box{
     display: flex;
+    align-items: center;
+    height: 48px;
 }
-
-
+.price{
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
 .price>input{
     width: 60px;
+    height: 100%;
 }
+.btn-box>button{
+    margin-left: 5px;
+    margin-top: 10px;
+    height: 30px;
+    line-height: 30px;
+    border: none;
+    background-color: red;
+    color: white;
+}
+
 .middle-box{
     padding: 0 3px;
 }

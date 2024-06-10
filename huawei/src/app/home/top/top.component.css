@@ -6,10 +6,13 @@
     background-color: black;
     justify-content: space-between;
     padding: 0 100px;
+    height: 45px;
 }
 .top ul{
     display: flex;
     list-style-type: none;
+    align-items: center;
+    height: 100%;
 }
 .top ul>li{
     margin-left: 10px;

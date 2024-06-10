@@ -39,11 +39,6 @@ export class ShoppingComponent implements OnInit {
   getById(){
     this.http.get(`http://localhost:4201/mate/findById/${this.id}`).subscribe(res =>{
       this.mateData = res
-      // this.service.image = this.mateData.data.image
-      // this.service.name = this.mateData.data.name
-      // this.service.price = this.mateData.data.price
-      // this.service.color = "雅丹黑"
-      // this.service.version = "12GB+512GB"
     })
   }
 

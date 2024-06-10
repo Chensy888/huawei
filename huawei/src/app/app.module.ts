@@ -19,6 +19,7 @@ import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { AffirmComponent } from './pages/affirm/affirm.component';
 import { TopComponent } from './home/top/top.component';
 import { ProgressComponent } from './home/progress/progress.component';
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ProgressComponent } from './home/progress/progress.component';
     FormsModule,
     ReactiveFormsModule,
     FormlyModule.forRoot(),
-    FormlyBootstrapModule
+    FormlyBootstrapModule,
+    NzCheckboxModule
     
   ],
   providers: [],

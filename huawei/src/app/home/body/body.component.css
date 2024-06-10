@@ -5,7 +5,7 @@
 }
 .new{
     padding: 20px 0;
-    width: 1200px;
+    width: 100%;
 }
 .new img{
     width: 100%;
@@ -37,17 +37,16 @@
 }
 
 
-
 .title{
     font-size: 25px;
     font-weight: bolder;
-    margin-left: 5px;
     margin-bottom: 30px;
 }
 .module{
-    width: 1200px;
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    padding-left: 15px;
 }
 .box{
     height: 361px;

@@ -71,7 +71,7 @@ img{
     left: 0;
     padding-top: 150px;
     font-size: 14px;
-    display: none;
+    display: none
 }
 .box1>.boder{
     width: 770px;
@@ -94,7 +94,7 @@ img{
     padding: 10px 0;
 }
 .box1>.boder>.message .title{
-    width: 82px;
+    width: 100px;
     height: 38px;
     line-height: 38px;
     padding: 0 10px;
@@ -102,7 +102,6 @@ img{
 }
 .box1>.boder>.message>.name input{
     width: 574px;
-    height: 21px;   
     padding: 8px 12px;
     border: 1px solid #DEDEDE;
 }
@@ -111,8 +110,7 @@ img{
     padding: 10px 0;
 }
 .box1>.boder>.message>.phone input{
-    width: 229px;
-    height: 21px;   
+    width: 229px; 
     padding: 8px 12px;
     border: 1px solid #DEDEDE;
 }

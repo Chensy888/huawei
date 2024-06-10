@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Service } from '../Service';
-import { map } from 'rxjs';
+import { from, map } from 'rxjs';
 
 @Component({
   selector: 'app-indent',
@@ -9,13 +9,17 @@ import { map } from 'rxjs';
 })
 export class IndentComponent{
   data:any;
-  isAllSelect = false
-  isSelect = false
+
   serviceItems$ = this.service.serviceItems$
 
   selectItems:any[]=[]
   totalMoney:number=0 
   number:number=0
+
+  indeterminate:boolean = true
+  isAllSelect = false
+  isSelect = false
+  
   constructor(
     private service : Service
   )
@@ -98,4 +102,5 @@ export class IndentComponent{
       }
     })
   }
+
 }

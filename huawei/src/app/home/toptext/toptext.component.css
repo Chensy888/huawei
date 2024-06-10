@@ -23,9 +23,12 @@
 }
 .nav{
     width: 700px;
+    height: 36px;
 }
 .nav>ul{
     display: flex;
+    height: 100%;
+    align-items: center;
 }
 .nav>ul>li{
     list-style-type: none;

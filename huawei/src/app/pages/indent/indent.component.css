@@ -2,6 +2,7 @@
     background-color: #F1F3F5;
     padding-bottom: 20px;
 }
+
 .top{
     display: flex;
     height: 70px;
@@ -49,7 +50,9 @@ img{
     display: flex;
     list-style-type: none;
     padding-left: 150px;
-  
+    height: 100%;
+    margin-bottom: 0;
+    align-items: center;
 }
 .box1>ul>li{
     width: 120px; 
@@ -75,11 +78,15 @@ img{
 .indent>div:nth-child(n+4){
     width: 140px;
 }
+
 .indent>.number>button{
     background-color: white;
     border: 1px solid #717171;
     width: 20px;
     border-radius: 10%;
+}
+.indent>div:nth-child(4){
+    width: 120px;
 }
 .indent>.number>.num{
     padding: 0 10px;
@@ -89,8 +96,9 @@ img{
     height: 100px;
 }
 .indent>.name{
-    width: 550px;
-    padding-left: 80px;
+    width: 600px;
+    padding-left: 50px;
+    margin-right: 20px;
 }
 
 .box3{

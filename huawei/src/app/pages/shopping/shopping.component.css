@@ -69,13 +69,19 @@
     display: flex;
 }
 .number{
-    line-height: 50px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .number>button{
     height: 25px;
     width: 25px;
+    display: flex;
+    align-items: center;
     border-radius: 100%;
     background-color: white;
+    margin: 0 7px;
     
 }
 input{

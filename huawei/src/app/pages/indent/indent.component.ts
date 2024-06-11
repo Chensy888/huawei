@@ -18,7 +18,7 @@ export class IndentComponent{
 
   indeterminate:boolean = true
   isAllSelect = false
-  isSelect = false
+
   
   constructor(
     private service : Service
@@ -31,26 +31,33 @@ export class IndentComponent{
     })
   }
   allselectChange(){
+    this.indeterminate = !this.indeterminate
+  
     this.totalMoney = 0
     this.number = 0
-    this.isAllSelect = !this.isAllSelect
-    this.isSelect = !this.isSelect
+ 
     if(this.isAllSelect){
         this.data.map((i:any) =>{
+          i[4] = true
           this.totalMoney += i[0].price*i[3]
           this.number += i[3]
       })     
-    }else{
+    }
+    
+    else{
+      this.data.map((i:any) =>{
+        i[4] = false
+        console.log(i[4])
+      })
       this.totalMoney = 0
     }
   }
-  getSelectMoney(id:any,isChecked:boolean){
-    //this.selectItems.push(id);
-
-    console.log(this.data)
+  getSelect(id:any){
     this.data.map((i:any) =>{
+      
       if(i[0].id === id){
-        if(isChecked){
+        console.log(i[4])
+        if(i[4]){
           this.totalMoney += i[0].price*i[3]
           this.number += i[3]
         }else{
@@ -58,39 +65,51 @@ export class IndentComponent{
           this.number -= i[3]
         }
       }
+      console.log(i)
     })
 
-    // if(this.selectItems.length === this.data.length){
-    //   this.isAllSelect = true
-    // }else{
-    //   this.isAllSelect = false
-    // }
+    if(this.data.every((i:any) => i[4])){
+      this.isAllSelect = true
+      this.indeterminate = false
+    }
+    else if(this.data.every((i:any) => !i[4])){
+      this.isAllSelect = false
+      this.indeterminate = true
+    }else{
+      this.indeterminate = true
+    }
+
   }
 
-  reducenumber(id:any,isChecked:boolean){
-    if(isChecked){
-      this.data.map((i:any) =>{
-        if(i[3]>1){
-          if(i[0].id === id){
-            i[3]--;
-            this.number--
-            this.totalMoney -=i[0].price
+  reducenumber(id:any){
+    this.data.map((i:any) =>{
+      if(i[4]){
+        this.data.map((i:any) =>{
+          if(i[3]>1){
+            if(i[0].id === id){
+              i[3]--;
+              this.number--
+              this.totalMoney -=i[0].price
+            }
           }
-        }
-      })
-    }   
+        })
+      }   
+    })
+    
   }
 
-  addnumber(id:any,isChecked:boolean){
-    if(isChecked){
-      this.data.map((i:any) =>{
-        if(i[0].id === id){
-          i[3]++
-          this.number++
-          this.totalMoney +=i[0].price
-        }
-      })
-    } 
+  addnumber(id:any){
+    this.data.map((i:any) =>{
+      if(i[4]){
+        this.data.map((i:any) =>{
+          if(i[0].id === id){
+            i[3]++
+            this.number++
+            this.totalMoney +=i[0].price
+          }
+        })
+      } 
+    })
   }
 
   delete(id:any){

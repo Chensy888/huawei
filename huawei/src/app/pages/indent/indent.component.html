@@ -41,8 +41,11 @@
         <div class="box2">
             <div class="indent" *ngFor="let i of data">
                 <div class="checkbox">
-                    <!-- <nz-checkbox-group [(ngModel)]="isSelect" (ngModelChange)="getSelectMoney(i[0].id,isChecked.checked)"></nz-checkbox-group> -->
-                    <input type="checkbox" #isChecked [checked]="isSelect" (click)="getSelectMoney(i[0].id,isChecked.checked)">
+                    <label 
+                        nz-checkbox
+                        [(ngModel)]="i[4]" 
+                        (ngModelChange)="getSelect(i[0].id)">
+                    </label>
                 </div>
                 <div class="image">
                 <img src="{{i[0].image}}">
@@ -50,9 +53,9 @@
                 <div class="name">{{i[0].name}} {{i[1]}} {{i[2]}}</div>
                 <div>{{i[0].price}}</div>
                 <div class="number" >
-                    <button (click)="reducenumber(i[0].id,isChecked.checked)">-</button>
+                    <button (click)="reducenumber(i[0].id)">-</button>
                     <div class="num">{{i[3]}}</div>
-                    <button (click)="addnumber(i[0].id,isChecked.checked)">+</button>
+                    <button (click)="addnumber(i[0].id)">+</button>
                 </div>
                 <div>{{i[0].price*i[3]}}</div>
                 <div (click)="delete(i[0].id)">删除</div>
@@ -63,7 +66,14 @@
 
         <div class="box3">
             <div class="left">
-                <div><input type="checkbox" [checked]="isAllSelect" (change)="allselectChange()">全选</div>
+                <label
+                    nz-checkbox
+                    [(ngModel)]="isAllSelect"
+                    (ngModelChange)="allselectChange()"
+                    [nzIndeterminate]="indeterminate"
+                >
+                    <div class="allselect">全选</div>
+                </label>
                 <div>删除</div>
             </div>
 

@@ -103,11 +103,11 @@ isInvalidPhoneNumber2(): boolean {
 
   getProviceId(proviceId:number){
     this.proviceId=proviceId
-    this.selectProvince = this.areaData.data[proviceId-1].area_name
+    this.selectProvince = this.areaData[proviceId-1].area_name
 
     this.citys = []
     this.districts = []
-    this.areaData.data.map((item:any) =>{
+    this.areaData.map((item:any) =>{
       if(item.parent_id == this.proviceId){
         this.citys.push(item)
       }
@@ -116,24 +116,24 @@ isInvalidPhoneNumber2(): boolean {
 
   getCityId(cityId:number){
     this.cityId=cityId
-    this.selectCity = this.areaData.data[cityId-1].area_name
+    this.selectCity = this.areaData[cityId-1].area_name
 
     this.districts = []
-    this.areaData.data.map((item:any) =>{
+    this.areaData.map((item:any) =>{
       if(item.parent_id == this.cityId){
         this.districts.push(item)
       }
     })
   }
   getDistrictId(districtId:number){
-    this.selectDistrict = this.areaData.data[districtId-1].area_name
+    this.selectDistrict = this.areaData[districtId-1].area_name
   }
   
   
   ngOnInit(): void {
-    this.http.get("http://localhost:4201/area/getAllList").subscribe(res =>{
+    this.http.get("http://127.0.0.1:3000/area/list").subscribe(res =>{
     this.areaData = res
-    this.areaData.data.map((item:any) =>{
+    this.areaData.map((item:any) =>{
       if(item.level == 1){
         this.provinces.push(item)
       }

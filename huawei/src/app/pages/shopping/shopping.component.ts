@@ -37,8 +37,9 @@ export class ShoppingComponent implements OnInit {
   }
 
   getById(){
-    this.http.get(`http://localhost:4201/mate/findById/${this.id}`).subscribe(res =>{
+    this.http.get(`http://127.0.0.1:3000/mate/findById/${this.id}`).subscribe(res =>{
       this.mateData = res
+      console.log(this.mateData)
     })
   }
 

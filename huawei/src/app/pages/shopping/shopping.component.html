@@ -4,13 +4,13 @@
 <div class="container">
 <div class="box">
     <div class="left-box">
-        <img src="{{mateData.data.image}}"/>
+        <img src="{{mateData.image}}"/>
     </div>
     
     <div class="right-box">
-        <div class="name">{{mateData.data.name}}</div>
-        <div class="introduce">{{mateData.data.introduce}}</div>
-        <div class="price">￥{{mateData.data.price}}</div>
+        <div class="name">{{mateData.name}}</div>
+        <div class="introduce">{{mateData.introduce}}</div>
+        <div class="price">￥{{mateData.price}}</div>
         <div class="title">颜色</div>
         <div class="select">
             <div *ngFor="let color of colors" [ngClass]="{'active':true, 'red':setColor === color}" (click)="colorClick(color)"> 

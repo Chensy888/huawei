@@ -8,25 +8,24 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './body.component.css'
 })
 export class BodyComponent {
-  computerData: any={data:[]};
-  phoneData: any={data:[]};
-  precinctData: any={data:[]};
+  computerData: any=[];
+  phoneData: any=[];
+  precinctData: any=[];
 
   constructor(private http:HttpClient,private router:Router,private route:ActivatedRoute){
     this.getAllList();
   }
   getAllList(){
-    this.http.get('http://localhost:4201/computer/getAllList').subscribe(res =>{
+    this.http.get('http://127.0.0.1:3000/computer/list').subscribe(res =>{
       this.computerData = res
     })
 
-    this.http.get('http://localhost:4201/phone/getAllList').subscribe(res =>{
+    this.http.get('http://127.0.0.1:3000/phone/list').subscribe(res =>{
       this.phoneData = res
     })
 
-    this.http.get('http://localhost:4201/precinct/getAllList').subscribe(res =>{
+    this.http.get('http://127.0.0.1:3000/precinct/list').subscribe(res =>{
       this.precinctData = res
-      console.log(res)
     })
 
 

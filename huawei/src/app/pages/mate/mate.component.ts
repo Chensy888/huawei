@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-mate',
@@ -36,13 +35,6 @@ export class MateComponent {
       this.maxprice = ""
     })
   }
-  // sortListByPage(){
-  //   this.http.get(`http://localhost:4201/mate/sortListByPage/${this.currentPage}/:${this.pageSize}`).subscribe(res =>{
-  //     this.pagedData= res;
-  //     this.minprice = ""
-  //     this.maxprice = ""
-  //   })
-  // }
   sortByComment(){
     this.http.get('http://localhost:4201/mate/sortByComment').subscribe(res =>{
       this.mateData = res;

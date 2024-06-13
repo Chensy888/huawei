@@ -1,7 +1,7 @@
 <div class="body-container">
 
     <div class="precinct">
-        <div *ngFor="let i of precinctData.data" class="precinct_box">
+        <div *ngFor="let i of precinctData" class="precinct_box">
             <div class="image"><img src="{{i.image}}"></div>
             <div>{{i.name}}</div>
         </div>
@@ -13,7 +13,7 @@
 
     <div class="title">电脑专区</div>
     <div class="module">
-        <div class="box"  *ngFor="let i of computerData.data">
+        <div class="box"  *ngFor="let i of computerData">
             <div class="img-box"><img src="{{i.image}}"></div>
             <div class="name">{{i.name}}</div>
             <div class="introduce">{{i.introduce}}</div>
@@ -23,7 +23,7 @@
 
     <div class="title">手机专区</div>
     <div class="module">
-        <div class="box"  *ngFor="let i of phoneData.data" (click)="getId(i.id)">
+        <div class="box"  *ngFor="let i of phoneData" (click)="getId(i.id)">
             <div class="img-box"><img src="{{i.image}}"></div>
             <div class="name">{{i.name}}</div>
             <div class="introduce">{{i.introduce}}</div>

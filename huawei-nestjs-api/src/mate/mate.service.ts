@@ -12,7 +12,7 @@ export class MateService {
   ) { }
   // 获取所有用户数据列表(userRepository.query()方法属于typeoram)
   async findAll(): Promise<MateEntity[]> {
-    return await this.mateRepository.query('select * from mate');
+    return await this.mateRepository.query(`select * from mate`);
   }
 
   //分页

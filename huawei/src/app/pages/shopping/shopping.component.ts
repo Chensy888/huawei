@@ -9,9 +9,9 @@ import { Service } from '../Service';
   styleUrl: './shopping.component.css'
 })
 export class ShoppingComponent implements OnInit {
-  mateData:any={data:[]}
+  mateData:any
   shopData:any=[];
-  public id: string = '';
+  id: string = '';
   number = 1;
   setColor="雅丹黑";
   setVersion="12GB+512GB";
@@ -44,7 +44,7 @@ export class ShoppingComponent implements OnInit {
   }
 
   addShop(){
-    this.shopData.push(this.mateData.data,this.setColor,this.setVersion,this.number)
+    this.shopData.push(this.mateData,this.setColor,this.setVersion,this.number)
     this.service.addService(this.shopData)
   }
 
@@ -68,11 +68,11 @@ export class ShoppingComponent implements OnInit {
   versionClick(version:any){
     this.setVersion = version
     if(this.setVersion == "12GB+1TB"){
-      this.mateData.data.price = 4999
+      this.mateData.price = 4999
     }else if(this.setVersion == "12GB+256GB"){
-      this.mateData.data.price = 3999
+      this.mateData.price = 3999
     }else{
-      this.mateData.data.price = 7999
+      this.mateData.price = 7999
     }
   }
 

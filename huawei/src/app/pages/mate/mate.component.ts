@@ -8,46 +8,47 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './mate.component.css'
 })
 export class MateComponent {
-  mateData: any={data:[]};
+  mateData: any=[];
   minprice :string= ""
   maxprice :string= ""
-  pagedData: any
+  pageData: any
+
   // 在组件中定义每页显示的项目数量
   pageSize: number = 4;
   // 定义当前页数
   currentPage: number = 1;
-  // 根据当前页数和每页显示数量计算起始索引和结束索引
-  startIndex = (this.currentPage - 1) * this.pageSize;
-  endIndex = Math.min(this.startIndex + this.pageSize - 1, this.mateData.data.length - 1);
   
-
   constructor(
     private http:HttpClient,
     private router:Router,
   ){
     this.getAllList();
+    this.gitListByPage();
   }
   getAllList(){
-    this.http.get('http://localhost:4201/mate/getAllList').subscribe(res =>{
+    this.http.get(`http://localhost:3000/mate/list`).subscribe(res =>{
       this.mateData = res;
-      this.pagedData = this.mateData.data.slice(0, 4);
-      this.minprice = ""
+    })
+  }
+  gitListByPage(){
+    this.http.get(`http://localhost:3000/mate/gitListByPage/${this.currentPage}/${this.pageSize}`).subscribe(res =>{
+      this.pageData = res;
       this.maxprice = ""
+      this.minprice = ""
     })
   }
   sortByComment(){
-    this.http.get('http://localhost:4201/mate/sortByComment').subscribe(res =>{
-      this.mateData = res;
-      this.pagedData = this.mateData.data.slice(0, 4);
-      this.minprice = ""
+    this.http.get(`http://localhost:3000/mate/sortByComment/${this.currentPage}/${this.pageSize}`).subscribe(res =>{
+      this.pageData = res;
       this.maxprice = ""
+      this.minprice = ""
     })
   }
 
   sortByPrice(){
-    this.http.get(`http://localhost:4201/mate/sortByPrice/${this.minprice}/${this.maxprice}`).subscribe(res =>{
+    this.http.get(`http://localhost:3000/mate/sortByPrice/${this.minprice}/${this.maxprice}/${this.currentPage}/${this.pageSize}`).subscribe(res =>{
+      this.pageData = res;
       this.mateData = res;
-      this.pagedData = this.mateData.data.slice(0, 4);
     })
   }
 
@@ -71,16 +72,13 @@ export class MateComponent {
   // 定义函数来处理页数更改
   pageChanged(pageNumber: number) {
     this.currentPage = pageNumber;
-    this.startIndex = (this.currentPage - 1) * this.pageSize;
-    this.endIndex = Math.min(this.startIndex + this.pageSize - 1, this.mateData.data.length - 1);
-    this.pagedData = this.mateData.data.slice(this.startIndex, this.endIndex + 1);
+    this.gitListByPage();
+    this.sortByComment();
   }
   getPageNumbers(): number[] {
-    const pageCount = Math.ceil(this.mateData.data.length / this.pageSize);
+    const pageCount = Math.ceil(this.mateData.length / this.pageSize);
     return Array(pageCount).fill(0).map((x, i) => i + 1);
+    
   }
-
-
-
   
 }

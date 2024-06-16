@@ -39,7 +39,7 @@ export class IndentComponent{
     if(this.isAllSelect){
         this.data.map((i:any) =>{
           i[4] = true
-          this.totalMoney += i[0].price*i[3]
+          this.totalMoney += i[0][0].price*i[3]
           this.number += i[3]
       })     
     }
@@ -47,25 +47,21 @@ export class IndentComponent{
     else{
       this.data.map((i:any) =>{
         i[4] = false
-        console.log(i[4])
       })
       this.totalMoney = 0
     }
   }
   getSelect(id:any){
-    this.data.map((i:any) =>{
-      
-      if(i[0].id === id){
-        console.log(i[4])
+    this.data.map((i:any) =>{  
+      if(i[0][0].id === id){
         if(i[4]){
-          this.totalMoney += i[0].price*i[3]
+          this.totalMoney += i[0][0].price*i[3]
           this.number += i[3]
         }else{
-          this.totalMoney -= i[0].price*i[3]
+          this.totalMoney -= i[0][0].price*i[3]
           this.number -= i[3]
         }
       }
-      console.log(i)
     })
 
     if(this.data.every((i:any) => i[4])){
@@ -86,10 +82,10 @@ export class IndentComponent{
       if(i[4]){
         this.data.map((i:any) =>{
           if(i[3]>1){
-            if(i[0].id === id){
+            if(i[0][0].id === id){
               i[3]--;
               this.number--
-              this.totalMoney -=i[0].price
+              this.totalMoney -=i[0][0].price
             }
           }
         })
@@ -102,10 +98,10 @@ export class IndentComponent{
     this.data.map((i:any) =>{
       if(i[4]){
         this.data.map((i:any) =>{
-          if(i[0].id === id){
+          if(i[0][0].id === id){
             i[3]++
             this.number++
-            this.totalMoney +=i[0].price
+            this.totalMoney +=i[0][0].price
           }
         })
       } 
@@ -115,7 +111,7 @@ export class IndentComponent{
   delete(id:any){
     //点击删除删除这条数据
     this.data.map((i:any) =>{
-      if(i[0].id === id){
+      if(i[0][0].id === id){
         this.data.splice(i,1)
         this.number--
       }

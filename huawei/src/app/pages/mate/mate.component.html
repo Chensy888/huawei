@@ -15,7 +15,7 @@
             </div>
             <div class="classify-box">
                 <div>排序：</div>
-                <div class="synthesize" (click)="getAllList()" tabindex="1">综合</div>
+                <div class="synthesize" (click)="gitListByPage()" tabindex="1">综合</div>
                 <div>最新</div>
                 <div class="sortcomment" (click)="sortByComment()" tabindex="1">评论数</div>
                 <div class="price-box">
@@ -30,7 +30,7 @@
 
         <div class="series">
             <div class="module">
-                <div class="box"  *ngFor="let i of pagedData" (click)="getId(i.id)">
+                <div class="box"  *ngFor="let i of pageData" (click)="getId(i.id)">
                     <div class="img-box"><img src="{{i.image}}" title="{{i.name}}"></div>
                     <div class="name">{{i.name}}</div>
                     <div class="introduce">{{i.introduce}}</div>
